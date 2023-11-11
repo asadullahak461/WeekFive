@@ -70,10 +70,9 @@
         app:helperTextEnabled="true"
         app:endIconDrawable="@drawable/check">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <EditText
             android:layout_width="300dp"
             android:layout_height="65dp"
-
             android:inputType="textEmailAddress"
             />
 
@@ -94,14 +93,14 @@
         app:helperTextEnabled="true"
     app:endIconMode="password_toggle">
 
-    <com.google.android.material.textfield.TextInputEditText
+    <EditText
         android:layout_width="300dp"
         android:layout_height="65dp"
 
     android:inputType="textPassword"
     />
 
-</com.google.android.material.textfield.TextInputLayout>
+    </com.google.android.material.textfield.TextInputLayout>
 
 
     <com.github.ybq.android.spinkit.SpinKitView
@@ -112,7 +111,7 @@
         android:layout_gravity="center"
         android:layout_below="@id/password"
         android:layout_centerHorizontal="true"
-        android:visibility="visible"
+        android:visibility="invisible"
         app:SpinKit_Color="#673AB7" />
 
 
