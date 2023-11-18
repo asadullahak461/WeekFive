@@ -13,6 +13,12 @@
         android:theme="@style/Theme.WeekFive"
         tools:targetApi="31">
         <activity
+            android:name=".activities.FemaleActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.MaleActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.OptionActivity"
             android:exported="false" />
         <activity

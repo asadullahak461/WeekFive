@@ -1,4 +1,3 @@
 package com.example.weekfive
 
-class items {
-}
+data class items(var image : Int , var gender : String)
