@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/n"
     tools:context=".activities.MaleActivity">
 
 
@@ -13,10 +14,22 @@
         android:layout_height="match_parent">
 
 
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Registration Form"
+                android:fontFamily="@font/amaranth"
+                android:textSize="22sp"
+                android:textStyle="italic"
+                android:textColor="@color/black"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="15dp"/>
 
 
             <androidx.cardview.widget.CardView
@@ -25,14 +38,14 @@
                 android:layout_height="150dp"
                 android:layout_marginLeft="130dp"
                 android:layout_marginTop="30dp"
-                app:cardCornerRadius="25dp">
+                app:cardCornerRadius="50dp">
 
                 <ImageView
                     android:id="@+id/profile_img"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:background="@drawable/a" />
+                    android:background="@drawable/male" />
 
             </androidx.cardview.widget.CardView>
 
@@ -40,7 +53,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/card_img"
-                android:layout_marginLeft="25dp"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="20dp"
                 app:endIconMode="clear_text"
                 app:errorEnabled="true">
@@ -49,6 +62,7 @@
                     android:id="@+id/etname"
                     android:layout_width="300dp"
                     android:layout_height="65dp"
+                    android:fontFamily="@font/amaranth"
                     android:hint="Enter Name"
                     android:inputType="text" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -57,8 +71,8 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
-                android:layout_marginTop="2dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginVertical="10dp"
                 app:endIconMode="clear_text"
                 app:errorEnabled="true">
 
@@ -66,6 +80,7 @@
                     android:id="@+id/etemail"
                     android:layout_width="300dp"
                     android:layout_height="65dp"
+                    android:fontFamily="@font/amaranth"
                     android:hint="Enter Email"
                     android:inputType="textEmailAddress" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -74,7 +89,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="2dp"
                 app:endIconMode="password_toggle"
                 app:errorEnabled="true">
@@ -83,6 +98,7 @@
                     android:id="@+id/etpassword"
                     android:layout_width="300dp"
                     android:layout_height="65dp"
+                    android:fontFamily="@font/amaranth"
                     android:hint="Enter Password"
                     android:inputType="textPassword" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -90,9 +106,10 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/amaranth"
                 android:text="Are You Above 18?"
-                android:textSize="16sp"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
 
@@ -100,7 +117,8 @@
                 android:id="@+id/radioGroup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginVertical="10dp"
                 android:checkedButton="@+id/radio_button_1"
                 android:orientation="horizontal">
 
@@ -108,12 +126,14 @@
                     android:id="@+id/radio_button_1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:fontFamily="@font/amaranth"
                     android:text="Yes" />
 
                 <RadioButton
                     android:id="@+id/radio_button_2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:fontFamily="@font/amaranth"
                     android:text="No" />
 
             </RadioGroup>
@@ -121,27 +141,39 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/amaranth"
                 android:text="From"
-                android:textSize="16sp"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
 
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_spinner"
+                android:layout_width="300dp"
+                android:layout_height="65dp"
+                android:layout_marginVertical="10dp"
+                android:layout_gravity="center_horizontal"
+                app:cardCornerRadius="50dp">
+
             <!--Spinner widget-->
             <Spinner
-                android:id="@+id/coursesspinner"
-                android:layout_width="250dp"
+                android:id="@+id/cityspinner"
+                android:layout_width="300dp"
                 android:layout_height="65dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="2dp" />
+            />
+
+            </androidx.cardview.widget.CardView>
 
             <TextView
                 android:id="@+id/tvDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginVertical="10dp"
+                android:fontFamily="@font/amaranth"
                 android:text="Date Of Birth"
-                android:textSize="16sp"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
             <Button
@@ -149,8 +181,17 @@
                 style="?attr/materialButtonOutlinedStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/amaranth"
                 android:text="Date" />
+
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginVertical="8dp"
+                android:fontFamily="@font/amaranth"
+                android:text="Submit" />
 
 
         </LinearLayout>

@@ -2,6 +2,7 @@ package com.example.weekfive.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ArrayAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.weekfive.CustomAdapter
@@ -10,10 +11,11 @@ import com.example.weekfive.databinding.ActivityOptionBinding
 import com.example.weekfive.items
 
 class OptionActivity : AppCompatActivity() {
+
     private lateinit var recyclerView: RecyclerView
     private lateinit var newArrayList: ArrayList<items>
     lateinit var image: Array<Int>
-    lateinit var gender : Array<String>
+    lateinit var gender: Array<String>
     private lateinit var binding: ActivityOptionBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,6 +24,12 @@ class OptionActivity : AppCompatActivity() {
 
 
 
+        getUserData()
+    }
+
+    private fun getUserData() {
+        val sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE)
+        binding.tvUser.text = "Hello ! ${sharedPreferences.getString("userEmail", "N/A")}";
 
         image = arrayOf(
 
@@ -37,13 +45,10 @@ class OptionActivity : AppCompatActivity() {
         recyclerView.setHasFixedSize(true)
 
         newArrayList = arrayListOf<items>()
-        getUserData()
-    }
-    private fun getUserData() {
 
-        for (i in image.indices){
+        for (i in image.indices) {
 
-            val items = items(image[i],gender[i])
+            val items = items(image[i], gender[i])
             newArrayList.add(items)
         }
 

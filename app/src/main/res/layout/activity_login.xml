@@ -67,6 +67,7 @@
         android:textColorHint="@color/black"
         android:layout_marginStart="30dp"
         app:endIconMode="custom"
+        app:errorEnabled="true"
         app:helperTextEnabled="true"
         app:endIconDrawable="@drawable/check">
 
@@ -91,6 +92,7 @@
         android:textColorHint="@color/black"
         android:layout_marginStart="30dp"
         app:helperTextEnabled="true"
+        app:errorEnabled="true"
     app:endIconMode="password_toggle">
 
     <EditText

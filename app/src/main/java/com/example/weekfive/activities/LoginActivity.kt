@@ -34,11 +34,8 @@ class LoginActivity : AppCompatActivity() {
                 if (TextUtils.isEmpty(binding.email.editText?.text.toString().trim())) {
                     binding.email.error = "Email cannot be empty"
                 }
-                if (TextUtils.isEmpty(binding.email.editText?.text.toString().trim())) {
-                    binding.email.error = "Email cannot be empty"
-                }
                 if (TextUtils.isEmpty(binding.password.editText?.text.toString().trim())) {
-                    binding.password.setError("Password cannot be empty")
+                    binding.password.error = "Password cannot be empty"
                 }
 
 //            Login
@@ -49,7 +46,10 @@ class LoginActivity : AppCompatActivity() {
                     if (it.isSuccessful) {
                         binding.spinKit.visibility = View.GONE
                         Toast.makeText(this, "Successfully LoggedIn", Toast.LENGTH_SHORT).show()
-                        isLogin("true",binding.email.editText?.text.toString().trim())
+                        isLogin("true",binding.email.editText?.text.toString().trim(),
+                            binding.password.editText?.text.toString().trim())
+
+
                         intent = Intent(this, OptionActivity::class.java)
                         startActivity(intent)
                     } else
@@ -66,14 +66,15 @@ class LoginActivity : AppCompatActivity() {
 
         }
     }
-    fun isLogin(status:String,email:String){
+    fun isLogin(status:String,email:String,password:String){
         // Creating a shared pref object with a file name "MySharedPref" in private mode
         val sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE)
         val myEdit = sharedPreferences.edit()
 
         // write all the data entered by the user in SharedPreference and apply
         myEdit.putString("isLoginIn", status)
-        myEdit.putString("userEmail", status)
+        myEdit.putString("userEmail", email)
+        myEdit.putString("userpassword",password)
         myEdit.apply()
     }
 }
