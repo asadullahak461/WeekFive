@@ -2,6 +2,7 @@ package com.example.weekfive.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
 import android.widget.ArrayAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -22,7 +23,7 @@ class OptionActivity : AppCompatActivity() {
         binding = ActivityOptionBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
+        setSupportActionBar(binding.maintoolbar);
 
         getUserData()
     }
@@ -53,5 +54,9 @@ class OptionActivity : AppCompatActivity() {
         }
 
         recyclerView.adapter = CustomAdapter(newArrayList)
+    }
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu, menu)
+        return true
     }
 }

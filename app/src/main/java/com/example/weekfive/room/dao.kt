@@ -10,6 +10,6 @@ interface dao {
     fun insertMale(maleData: maleData)
 
     @Insert
-    fun insertMale(femaleData: femaleData)
+    fun insertFemale(femaleData: femaleData)
 
 }
