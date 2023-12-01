@@ -1,15 +1,17 @@
 package com.example.weekfive.activities
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
-import android.widget.ArrayAdapter
+import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.weekfive.CustomAdapter
 import com.example.weekfive.R
 import com.example.weekfive.databinding.ActivityOptionBinding
 import com.example.weekfive.items
+
 
 class OptionActivity : AppCompatActivity() {
 
@@ -26,6 +28,7 @@ class OptionActivity : AppCompatActivity() {
         setSupportActionBar(binding.maintoolbar);
 
         getUserData()
+
     }
 
     private fun getUserData() {
@@ -55,8 +58,27 @@ class OptionActivity : AppCompatActivity() {
 
         recyclerView.adapter = CustomAdapter(newArrayList)
     }
+
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id = item.itemId
+        when (id) {
+            R.id.logout -> {
+                val preferences = getSharedPreferences("MySharedPref", MODE_PRIVATE)
+                val editor = preferences.edit()
+                editor.clear()
+                editor.apply()
+                intent = Intent(this, LoginActivity::class.java)
+                startActivity(intent)
+                finishAffinity()
+                return true
+
+            }
+        }
         return true
     }
 }
