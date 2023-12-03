@@ -69,6 +69,7 @@ class FemaleActivity : AppCompatActivity() {
                     femaleData(image = image, name = name, email = email, password = password, city = city,dob=dob
                         ,aboveEighteen = adult)
                 database.dao().insertFemale(myObj)
+                Toast.makeText(this, "Data Added", Toast.LENGTH_SHORT).show()
 
 
 

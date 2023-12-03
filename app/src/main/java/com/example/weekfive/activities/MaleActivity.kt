@@ -12,7 +12,9 @@ import android.widget.Toast
 import com.example.weekfive.R
 import com.example.weekfive.databinding.ActivityMaleBinding
 import com.example.weekfive.room.AppDatabase
+import com.example.weekfive.room.DatabaseBuilder
 import com.example.weekfive.room.femaleData
+import com.example.weekfive.room.maleData
 
 class MaleActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMaleBinding
@@ -25,6 +27,9 @@ class MaleActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMaleBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
+        database = DatabaseBuilder.getInstance(this)
 
         var city = arrayOf(
             "Select City",
@@ -60,9 +65,10 @@ class MaleActivity : AppCompatActivity() {
             }
             try {
                 val myObj =
-                    femaleData(image = image, name = name, email = email, password = password, city = city,dob=dob
+                    maleData(image = image, name = name, email = email, password = password, city = city,dob=dob
                         ,aboveEighteen = adult)
-                database.dao().insertFemale(myObj)
+                database.dao().insertMale(myObj)
+                Toast.makeText(this, "Date Added", Toast.LENGTH_SHORT).show()
 
 
 

@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -11,6 +12,8 @@ import com.example.weekfive.CustomAdapter
 import com.example.weekfive.R
 import com.example.weekfive.databinding.ActivityOptionBinding
 import com.example.weekfive.items
+import com.example.weekfive.room.AppDatabase
+import com.example.weekfive.room.DatabaseBuilder
 
 
 class OptionActivity : AppCompatActivity() {
@@ -20,6 +23,7 @@ class OptionActivity : AppCompatActivity() {
     lateinit var image: Array<Int>
     lateinit var gender: Array<String>
     private lateinit var binding: ActivityOptionBinding
+    private lateinit var database: AppDatabase
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityOptionBinding.inflate(layoutInflater)
@@ -27,6 +31,7 @@ class OptionActivity : AppCompatActivity() {
 
         setSupportActionBar(binding.maintoolbar);
 
+        database = DatabaseBuilder.getInstance(this)
         getUserData()
 
     }
@@ -38,11 +43,13 @@ class OptionActivity : AppCompatActivity() {
         image = arrayOf(
 
             R.drawable.male,
-            R.drawable.female
+            R.drawable.female,
+            R.drawable.form
         )
         gender = arrayOf(
             "Male",
-            "Female"
+            "Female",
+            "Advance Form"
         )
         recyclerView = findViewById(R.id.recycler_view)
         recyclerView.layoutManager = LinearLayoutManager(this)
@@ -56,7 +63,7 @@ class OptionActivity : AppCompatActivity() {
             newArrayList.add(items)
         }
 
-        recyclerView.adapter = CustomAdapter(newArrayList)
+        recyclerView.adapter = CustomAdapter(newArrayList,applicationContext,database)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
