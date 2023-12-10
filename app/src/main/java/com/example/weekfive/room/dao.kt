@@ -9,9 +9,11 @@ interface dao {
 
     @Insert
     fun insertMale(maleData: maleData)
-    //read getAllmaleData
+
     @Query("SELECT * FROM maleData")
     fun getAllmaleData(): List<maleData>
+
+
 
     @Insert
     fun insertFemale(femaleData: femaleData)
