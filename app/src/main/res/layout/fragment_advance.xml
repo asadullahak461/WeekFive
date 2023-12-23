@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/n"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10dp"
+        android:fontFamily="@font/amaranth"
+        android:gravity="center_horizontal"
+        android:text="Advance Form"
+        android:textFontWeight="500"
+        android:textSize="27sp"
+        android:textStyle="bold|italic" />
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/firstpic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="17dp"
+            app:cardCornerRadius="40dp"
+            app:cardElevation="10dp">
+
+            <ImageView
+                android:id="@+id/front_pic"
+                android:layout_width="180dp"
+                android:layout_height="140dp"
+                android:src="@drawable/uploadimages" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/secondpic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:layout_toEndOf="@id/firstpic"
+            app:cardCornerRadius="40dp"
+            app:cardElevation="10dp">
+
+            <ImageView
+                android:layout_width="180dp"
+                android:layout_height="140dp"
+                android:src="@drawable/uploadimages" />
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/thirddpic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/firstpic"
+            android:layout_marginHorizontal="17dp"
+            app:cardCornerRadius="40dp"
+            app:cardElevation="10dp">
+
+            <ImageView
+                android:layout_width="180dp"
+                android:layout_height="140dp"
+                android:src="@drawable/uploadimages" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/fourthpic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/secondpic"
+            android:layout_marginHorizontal="1dp"
+            android:layout_toEndOf="@id/thirddpic"
+            app:cardCornerRadius="40dp"
+            app:cardElevation="10dp">
+
+            <ImageView
+                android:layout_width="180dp"
+                android:layout_height="140dp"
+                android:src="@drawable/uploadimages" />
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txtpdf"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="20dp"
+        android:fontFamily="@font/amaranth"
+        android:gravity="center_horizontal"
+        android:padding="8dp"
+        android:text="Upload Matric or Inter Marksheet"
+        android:textAlignment="center"
+        android:textColor="@color/purple"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnpdf"
+        android:layout_width="140dp"
+        android:layout_height="56dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/amaranth"
+        android:padding="8dp"
+        android:text="Upload"
+        android:textAllCaps="false"
+        android:textSize="18sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/amaranth"
+        android:text="From"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_spinner"
+        android:layout_width="300dp"
+        android:layout_height="65dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginVertical="4dp"
+        app:cardCornerRadius="50dp">
+        <!--Spinner widget-->
+        <Spinner
+            android:id="@+id/cityspinner"
+            android:layout_width="300dp"
+            android:layout_height="65dp"
+            android:fontFamily="@font/amaranth" />
+
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/btn_submitm"
+        style="@style/Button"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginVertical="30dp"
+        android:text="Submit" />
+
+</LinearLayout>

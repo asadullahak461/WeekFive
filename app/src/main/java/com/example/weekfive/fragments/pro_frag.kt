@@ -6,12 +6,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.weekfive.R
 
-class sports_frag : Fragment() {
+class pro_frag : Fragment() {
     // inflate the layout
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ) =
-        inflater.inflate(R.layout.fragment_sports, container, false)!!
+        inflater.inflate(R.layout.fragment_pro, container, false)!!
 }
