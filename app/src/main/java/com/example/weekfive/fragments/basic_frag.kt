@@ -29,7 +29,6 @@ class basic_frag : Fragment() {
     lateinit var tv_pdfname: TextView
     lateinit var front_pic: ImageView
     lateinit var back_pic: ImageView
-    var resultLauncher: ActivityResultLauncher<Intent>? = null
     private val pic_one = 1
     private val pic_two = 2
     private val pdf_Code = 3
@@ -100,8 +99,8 @@ class basic_frag : Fragment() {
 
     fun showFileChooser() {
         val intent = Intent(Intent.ACTION_GET_CONTENT)
-        intent.type = "*/*"
-        intent.addCategory(Intent.CATEGORY_OPENABLE)
+        intent.type = "application/pdf"
+//        intent.addCategory(Intent.CATEGORY_OPENABLE)
         try {
             startActivityForResult(Intent.createChooser(intent, ""), pdf_Code)
         } catch (e: Exception) {

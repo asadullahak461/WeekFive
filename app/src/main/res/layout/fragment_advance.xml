@@ -21,79 +21,84 @@
 
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:gravity="center_horizontal"
         android:orientation="horizontal">
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/firstpic"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="17dp"
-            app:cardCornerRadius="40dp"
-            app:cardElevation="10dp">
+<!--        <androidx.cardview.widget.CardView-->
+<!--            android:id="@+id/firstpic"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginHorizontal="17dp"-->
+<!--            app:cardCornerRadius="40dp"-->
+<!--            app:cardElevation="10dp">-->
 
-            <ImageView
-                android:id="@+id/front_pic"
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/pic1"
                 android:layout_width="180dp"
                 android:layout_height="140dp"
                 android:src="@drawable/uploadimages" />
-        </androidx.cardview.widget.CardView>
+<!--        </androidx.cardview.widget.CardView>-->
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/secondpic"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="1dp"
-            android:layout_toEndOf="@id/firstpic"
-            app:cardCornerRadius="40dp"
-            app:cardElevation="10dp">
+<!--        <androidx.cardview.widget.CardView-->
+<!--            android:id="@+id/secondpic"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginHorizontal="1dp"-->
+<!--            android:layout_toEndOf="@id/firstpic"-->
+<!--            app:cardCornerRadius="40dp"-->
+<!--            app:cardElevation="10dp">-->
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/pic2"
                 android:layout_width="180dp"
                 android:layout_height="140dp"
                 android:src="@drawable/uploadimages" />
-        </androidx.cardview.widget.CardView>
+<!--        </androidx.cardview.widget.CardView>-->
     </LinearLayout>
 
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
+        android:gravity="center_horizontal"
         android:orientation="horizontal">
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/thirddpic"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/firstpic"
-            android:layout_marginHorizontal="17dp"
-            app:cardCornerRadius="40dp"
-            app:cardElevation="10dp">
+<!--        <androidx.cardview.widget.CardView-->
+<!--            android:id="@+id/thirddpic"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@id/firstpic"-->
+<!--            android:layout_marginHorizontal="17dp"-->
+<!--            app:cardCornerRadius="40dp"-->
+<!--            app:cardElevation="10dp">-->
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/pic3"
                 android:layout_width="180dp"
                 android:layout_height="140dp"
                 android:src="@drawable/uploadimages" />
-        </androidx.cardview.widget.CardView>
+<!--        </androidx.cardview.widget.CardView>-->
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/fourthpic"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/secondpic"
-            android:layout_marginHorizontal="1dp"
-            android:layout_toEndOf="@id/thirddpic"
-            app:cardCornerRadius="40dp"
-            app:cardElevation="10dp">
+<!--        <androidx.cardview.widget.CardView-->
+<!--            android:id="@+id/fourthpic"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@id/secondpic"-->
+<!--            android:layout_marginHorizontal="1dp"-->
+<!--            android:layout_toEndOf="@id/thirddpic"-->
+<!--            app:cardCornerRadius="40dp"-->
+<!--            app:cardElevation="10dp">-->
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/pic4"
                 android:layout_width="180dp"
                 android:layout_height="140dp"
                 android:src="@drawable/uploadimages" />
-        </androidx.cardview.widget.CardView>
+<!--        </androidx.cardview.widget.CardView>-->
     </LinearLayout>
 
     <TextView
@@ -155,7 +160,7 @@
     </androidx.cardview.widget.CardView>
 
     <Button
-        android:id="@+id/btn_submitm"
+        android:id="@+id/btn_submit"
         style="@style/Button"
         android:layout_width="200dp"
         android:layout_height="60dp"
