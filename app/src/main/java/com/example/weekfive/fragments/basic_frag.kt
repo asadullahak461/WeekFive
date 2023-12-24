@@ -12,6 +12,7 @@ import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
@@ -67,7 +68,6 @@ class basic_frag : Fragment() {
         }
         back_pic.setOnClickListener {
             val camera_intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-
             startActivityForResult(camera_intent, pic_two)
         }
     }

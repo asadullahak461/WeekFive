@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -20,16 +21,33 @@
         android:textStyle="bold|italic" />
 
 
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/profile_img"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+    <RelativeLayout
+        android:layout_width="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginVertical="20dp"
-        android:src="@drawable/uploadimages"
-        app:civ_border_color="#FF000000"
-        app:civ_border_width="2dp" />
+        android:layout_marginVertical="10dp"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/delete_btn"
+            android:layout_width="18dp"
+            android:layout_height="23dp"
+            android:background="@drawable/delete"
+            android:visibility="invisible"
+            android:layout_alignRight="@id/profile_img"/>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_img"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_gravity="center"
+            android:layout_marginVertical="20dp"
+            android:src="@drawable/uploadimages"
+            app:civ_border_color="#FF000000"
+            app:civ_border_width="2dp" />
+
+    </RelativeLayout>
+
+
 
 
     <TextView
@@ -59,7 +77,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
-       />
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
 
     <Button

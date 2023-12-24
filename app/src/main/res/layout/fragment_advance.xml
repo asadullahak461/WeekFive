@@ -118,7 +118,7 @@
         android:textStyle="bold" />
 
     <Button
-        android:id="@+id/btnpdf"
+        android:id="@+id/btn_marksheet"
         android:layout_width="140dp"
         android:layout_height="56dp"
         android:layout_gravity="center_horizontal"

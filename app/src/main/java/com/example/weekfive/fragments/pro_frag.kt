@@ -1,16 +1,22 @@
 package com.example.weekfive.fragments
 
 
+import android.app.Activity
 import android.app.TimePickerDialog
+import android.content.Intent
+import android.graphics.Bitmap
 import android.os.Bundle
+import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.TimePicker
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.example.weekfive.R
 
@@ -20,7 +26,9 @@ class pro_frag : Fragment() {
     lateinit var time_btn : Button
     lateinit var show_time : TextView
     lateinit var autoTextView : AutoCompleteTextView
-
+    lateinit var upload_profile : ImageView
+    private val pic = 1
+    lateinit var delete_btn : ImageView
     var countries = arrayOf(
         "India", "Australia", "West indies", "indonesia", "Indiana",
         "South Africa", "England", "Bangladesh", "Srilanka", "singapore"
@@ -74,7 +82,7 @@ class pro_frag : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ) : View?{
-       rootView=inflater.inflate(R.layout.fragment_pro, container, false)!!
+       rootView=inflater.inflate(R.layout.fragment_pro, container, false)
         setupUi(rootView)
         return rootView
     }
@@ -83,10 +91,18 @@ class pro_frag : Fragment() {
         time_btn = rootView!!.findViewById(R.id.btn_time)
         show_time = rootView!!.findViewById(R.id.show_time_txt)
         autoTextView=rootView!!.findViewById(R.id.city)
+        upload_profile = rootView!!.findViewById(R.id.profile_img)
+        delete_btn = rootView!!.findViewById(R.id.delete_btn)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        upload_profile.setOnClickListener {
+            val camera_intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+            startActivityForResult(camera_intent, pic)
+        }
+
         time_btn.setOnClickListener {
             val timePicker: TimePickerDialog = TimePickerDialog(
                 // pass the Context
@@ -112,7 +128,20 @@ class pro_frag : Fragment() {
         val adapter = ArrayAdapter(requireContext(),
             android.R.layout.simple_list_item_1, countries)
         autoTextView.setAdapter(adapter)
-    }
+
 
     }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == pic && resultCode == Activity.RESULT_OK && data != null) {
+
+            // BitMap is data structure of image file which store the image in memory
+            val photo = data!!.extras!!["data"] as Bitmap?
+            upload_profile.setImageBitmap(photo)
+            delete_btn.visibility = View.VISIBLE
+        }
+        }
+    }
+
 
