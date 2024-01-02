@@ -113,7 +113,7 @@
         android:layout_gravity="center"
         android:layout_below="@id/password"
         android:layout_centerHorizontal="true"
-        android:visibility="invisible"
+        android:visibility="visible"
         app:SpinKit_Color="#673AB7" />
 
 

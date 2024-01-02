@@ -85,6 +85,13 @@ class OptionActivity : AppCompatActivity() {
                 return true
 
             }
+            R.id.summary -> {
+
+                intent = Intent(this, SummaryActivity::class.java)
+                startActivity(intent)
+                return true
+
+            }
         }
         return true
     }

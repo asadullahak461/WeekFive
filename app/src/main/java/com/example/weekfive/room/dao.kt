@@ -21,4 +21,13 @@ interface dao {
     //read getAllfemaleData
     @Query("SELECT * FROM femaleData")
     fun getAllfemaleData(): List<femaleData>
+
+    @Insert
+    fun insertBasic(basic: basic)
+
+    @Insert
+    fun insertAdvance(advance: advance)
+
+    @Insert
+    fun insertPro(pro: pro)
 }

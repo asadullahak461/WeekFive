@@ -5,6 +5,7 @@ import android.app.Activity
 import android.app.TimePickerDialog
 import android.content.Intent
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.LayoutInflater
@@ -19,11 +20,18 @@ import android.widget.TimePicker
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.example.weekfive.R
+import com.example.weekfive.room.AppDatabase
+import com.example.weekfive.room.DatabaseBuilder
+import com.example.weekfive.room.advance
+import com.example.weekfive.room.pro
+import java.io.ByteArrayOutputStream
 
 
 class pro_frag : Fragment() {
+    private lateinit var database: AppDatabase
     private lateinit var rootView: View
     lateinit var time_btn : Button
+    lateinit var submit_btn : Button
     lateinit var show_time : TextView
     lateinit var autoTextView : AutoCompleteTextView
     lateinit var upload_profile : ImageView
@@ -88,11 +96,13 @@ class pro_frag : Fragment() {
     }
 
     private fun setupUi(rootView: View) {
+        database = DatabaseBuilder.getInstance(requireContext())
         time_btn = rootView!!.findViewById(R.id.btn_time)
         show_time = rootView!!.findViewById(R.id.show_time_txt)
         autoTextView=rootView!!.findViewById(R.id.city)
         upload_profile = rootView!!.findViewById(R.id.profile_img)
         delete_btn = rootView!!.findViewById(R.id.delete_btn)
+        submit_btn = rootView!!.findViewById(R.id.submit_btn)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -102,6 +112,11 @@ class pro_frag : Fragment() {
             val camera_intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
             startActivityForResult(camera_intent, pic)
         }
+
+        delete_btn.setOnClickListener {
+            upload_profile.setImageResource(R.drawable.uploadimages);
+        }
+
 
         time_btn.setOnClickListener {
             val timePicker: TimePickerDialog = TimePickerDialog(
@@ -130,6 +145,16 @@ class pro_frag : Fragment() {
         autoTextView.setAdapter(adapter)
 
 
+        submit_btn.setOnClickListener {
+            val pic: String =upload_profile.toString()
+            val time: String = show_time.text.toString()
+            val city: String = autoTextView.toString()
+            val myObj =
+                pro(pic = pic, time = time, city = city)
+            database.dao().insertPro(myObj)
+        }
+
+
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -138,10 +163,17 @@ class pro_frag : Fragment() {
 
             // BitMap is data structure of image file which store the image in memory
             val photo = data!!.extras!!["data"] as Bitmap?
-            upload_profile.setImageBitmap(photo)
+            val myphotoBitmap = compressBitmap(photo!!,100)
+            upload_profile.setImageBitmap(myphotoBitmap)
             delete_btn.visibility = View.VISIBLE
         }
         }
+    fun compressBitmap(inputBitmap: Bitmap, quality: Int): Bitmap {
+        val outputStream = ByteArrayOutputStream()
+        inputBitmap.compress(Bitmap.CompressFormat.JPEG, quality, outputStream)
+        val byteArray = outputStream.toByteArray()
+        return BitmapFactory.decodeByteArray(byteArray, 0, byteArray.size)
+    }
     }
 
 
