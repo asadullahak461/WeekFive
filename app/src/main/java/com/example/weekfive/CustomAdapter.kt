@@ -43,8 +43,6 @@ class CustomAdapter(private val itemslist: List<items>,private val context: Cont
 
 
 
-
-
         holder.itemView.setOnClickListener {
             try {
 

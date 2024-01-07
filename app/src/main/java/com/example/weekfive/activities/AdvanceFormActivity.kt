@@ -32,6 +32,7 @@ class AdvanceFormActivity : AppCompatActivity() {
 
         // bind the viewPager with the TabLayout.
         binding.tabs.setupWithViewPager(binding.viewPager)
+        
     }
 
 }

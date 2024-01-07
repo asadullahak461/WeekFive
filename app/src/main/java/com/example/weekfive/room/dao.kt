@@ -30,4 +30,26 @@ interface dao {
 
     @Insert
     fun insertPro(pro: pro)
+
+    @Query("SELECT COUNT(*) FROM maleData")
+    fun getMaleCount():Int
+
+    @Query("SELECT COUNT(*) FROM femaleData")
+    fun getFemaleCount():Int
+
+    @Query("SELECT COUNT(*) FROM basic")
+    fun getBasicCount():Int
+
+
+    @Query("SELECT COUNT(*) FROM advance")
+    fun getAdvanceCount():Int
+
+
+    @Query("SELECT COUNT(*) FROM pro")
+    fun getProCount():Int
+
+
+
+
+
 }

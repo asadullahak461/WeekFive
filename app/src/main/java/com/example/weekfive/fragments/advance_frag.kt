@@ -10,6 +10,7 @@ import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.ImageView
@@ -41,6 +42,8 @@ class advance_frag : Fragment() {
     private val pic_three = 3
     private val pic_four = 4
     private val pdf_Code = 5
+
+    lateinit var cityName:String
 
 
     // inflate the layout
@@ -106,15 +109,28 @@ class advance_frag : Fragment() {
         // Set Adapter to Spinner
         cityspinner!!.setAdapter(arrayAdapter)
 
+        cityspinner.onItemSelectedListener = object :
+            AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>,
+                                        view: View, position: Int, id: Long) {
+                cityName=city[position]
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>) {
+                // write code to perform some action
+            }
+        }
+
+
         submit_btn.setOnClickListener {
             val pic1: String =pic1.toString()
             val pic2: String =pic2.toString()
             val pic3: String =pic3.toString()
             val pic4: String =pic4.toString()
             val pdf: String = txtpdf.text.toString()
-            val city: String = cityspinner.toString()
+
             val myObj =
-                advance(pic1 = pic1, pic2 = pic2, pic3 = pic3, pic4 = pic4, pdf = pdf, city = city)
+                advance(pic1 = pic1, pic2 = pic2, pic3 = pic3, pic4 = pic4, pdf = pdf, city = cityName)
             database.dao().insertAdvance(myObj)
         }
 

@@ -6,13 +6,15 @@
 
     <item
         android:id="@+id/logout"
-        android:title="Logout"
         android:icon="@drawable/baseline_logout_24"
+        android:title="Logout"
         app:showAsAction="withText" />
 
     <item
-    android:id="@+id/summary"
-    android:title="Summary"
+        android:id="@+id/summary"
         android:icon="@drawable/baseline_summarize_24"
-    app:showAsAction="withText" />
+        android:title="Summary"
+        app:showAsAction="withText" />
+
+
 </menu>

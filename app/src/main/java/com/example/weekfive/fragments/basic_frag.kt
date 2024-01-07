@@ -46,6 +46,9 @@ class basic_frag : Fragment() {
     private val pic_one = 1
     private val pic_two = 2
     private val pdf_Code = 3
+    lateinit var photo1:Bitmap
+    lateinit var photo2:Bitmap
+
 
 
     // inflate the layout
@@ -89,13 +92,11 @@ class basic_frag : Fragment() {
             startActivityForResult(camera_intent, pic_two)
         }
         submit_btn.setOnClickListener {
-            val front: String =front_pic.toString()
-            val back: String =back_pic.toString()
             val nicnum : String = nicnum.text.toString()
             val phonenum : String = phonenum.text.toString()
             val pdf : String = tv_pdfname.text.toString()
             val myObj =
-                basic(front = front, back = back, nic_num = nicnum, phone_num = phonenum, pdf = pdf)
+                basic(front = photo1.toString(), back = photo2.toString(), nic_num = nicnum, phone_num = phonenum, pdf = pdf)
             database.dao().insertBasic(myObj)
         }
     }
@@ -106,15 +107,15 @@ class basic_frag : Fragment() {
         if (requestCode == pic_one && resultCode == RESULT_OK && data != null) {
 
             // BitMap is data structure of image file which store the image in memory
-            val photo = data!!.extras!!["data"] as Bitmap?
-            val myphotoBitmap = compressBitmap(photo!!,100)
+            photo1 = (data!!.extras!!["data"] as Bitmap?)!!
+            val myphotoBitmap = compressBitmap(photo1!!,100)
             front_pic.setImageBitmap(myphotoBitmap)
 
         } else if (requestCode == pic_two && resultCode == RESULT_OK && data != null) {
 
             // BitMap is data structure of image file which store the image in memory
-            val photo = data!!.extras!!["data"] as Bitmap?
-            val myphotoBitmap = compressBitmap(photo!!,10)
+            photo2 = (data!!.extras!!["data"] as Bitmap?)!!
+            val myphotoBitmap = compressBitmap(photo2!!,10)
             back_pic.setImageBitmap(myphotoBitmap)
 
 

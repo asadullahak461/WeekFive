@@ -59,6 +59,7 @@
 
 
             <TextView
+                android:id="@+id/email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="15dp"
@@ -88,6 +89,7 @@
                />
 
             <TextView
+                android:id="@+id/userpassword"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="15dp"
@@ -139,6 +141,7 @@
                 android:text="Male Form" />
 
             <TextView
+                android:id="@+id/malecount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="15dp"
@@ -165,6 +168,7 @@
                 android:text="Female Form" />
 
             <TextView
+                android:id="@+id/femalecount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="15dp"
@@ -216,10 +220,11 @@
 
 
             <TextView
+                android:id="@+id/totalcount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="15dp"
-                android:layout_marginVertical="25dp"
+                android:layout_marginVertical="27dp"
                 android:fontFamily="@font/amaranth"
                 android:text="3"
                 android:textSize="25sp" />
@@ -245,6 +250,7 @@
                 android:text="Basic" />
 
             <TextView
+                android:id="@+id/basiccount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="15dp"
@@ -271,6 +277,7 @@
                 android:text="Advance" />
 
             <TextView
+                android:id="@+id/advancecount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="15dp"
@@ -296,6 +303,7 @@
                 android:text="Pro" />
 
             <TextView
+                android:id="@+id/procount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="15dp"
